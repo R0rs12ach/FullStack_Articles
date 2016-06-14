@@ -1,0 +1,34 @@
+{
+	"title": "FullStack.live",
+	"author": "R0rs12ach",
+	"description": "收集Web全栈工程师的必备技能文摘",
+	"language": "zh-hans",
+	"links": {
+		"sidebar": {
+			"FullStack.Live": "http://fullstack.live"
+		}
+		},
+	"plugins": ["fontsettings", "disqus","-search","advanced-emoji","include-codeblock","-sharing","toggle-chapters","baidu","github","ace"],
+	"pluginsConfig": {
+		"sharing": {
+			"weibo": true
+		},
+		"disqus": {
+			"shortName": "gitbookuse"
+		},
+		"github": {
+			"url": "https://github.com/R0rs12ach/FullStack.live"
+		},
+		"search-pro": {
+			"cutWordLib": "nodejieba"
+		},
+		"baidu": {
+			"token": "22bf62a113752fbb380cab230b956847"
+		},
+		"fontsettings": {
+			"theme": "night",
+			"family": "sans",
+			"size": 2
+		}
+	}
+}
