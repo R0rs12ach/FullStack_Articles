@@ -1,0 +1,30 @@
+# Shell查找替换所有文件中的指定字段
+
+- grep命令的高效参数(`grep pattern file`命令默认的行为就是将file中匹配的内容进行改变)
+    - `*` 就是一般的bash通配符，表示当前目录中的所有文件 
+    - `-r` 是递归查找
+    - `-n` 是显示行号
+    - `-l` 是列出匹配的文件名
+    - `-L` 是列出不匹配的文件名
+    - `-w` 只匹配整个单词，而不是字符串的一部分（如匹配‘man’，包括man两边有符号的如‘.man.’),或者是'=man=',而不包括'woman'或者是'manly'
+    
+知道了怎么筛选,那么就需要知道怎么把上述的输出变成另一个管道的输入,我们主要强调两种方式 `$()`和``` ` ` ```
+
+```
+$ echo `ls`  //会输出ls命令的内容
+$ echo $(ls) //一样会输出ls命令的内容
+```
+
+- 文件替换可以使用`sed`命令,主要记住方法
+
+```
+sed -i "s/need_replaced/will_replace/g" file1.txt file2.txt
+```
+该命令可以将file*.txt中的`need_replaced`替换成`will_replace`
+
+- 这个时候，我们就可以组合上述两个命令,实现我们的目标
+
+```
+sed -i "s/http:\/\/yyy.xxx.edu.cn//g" $(grep -lr "http://yyy.xxx.edu.cn" *)
+```
+注意grep最后指定的*通配符
